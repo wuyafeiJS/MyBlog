@@ -8,7 +8,8 @@ cache:
   directories:
     - node_modules
 before_install:
-  - touch ~/.ssh/id_rsa
+  - mkdir -p ~/.ssh
+  - touch id_rsa
   - openssl aes-256-cbc -K $encrypted_b0ed3251d3fd_key -iv $encrypted_b0ed3251d3fd_iv
     -in id_rsa.enc -out ~\/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
