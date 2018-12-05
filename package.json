@@ -1,12 +1,9 @@
 {
-  "name": "Trace of Front-end",
+  "name": "myblog",
   "private": true,
   "description": "Trace of Front-end",
   "version": "1.0.0",
   "author": "Yafei Wu <619534816@qq.com>",
-  "bugs": {
-    "url": ""
-  },
   "dependencies": {
     "gatsby": "^2.0.19",
     "gatsby-plugin-feed": "^2.0.8",
