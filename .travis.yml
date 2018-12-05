@@ -4,14 +4,8 @@ os:
   - osx
 node_js:
   - 8.9.0
-
 before_install:
-  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
+  - openssl aes-256-cbc -K $encrypted_b0ed3251d3fd_key -iv $encrypted_b0ed3251d3fd_iv
+    -in super_secret.txt.enc -out super_secret.txt -d
 after_success:
-  - ssh root@120.79.161.225 "\
-    cd /home/MyBlog; \
-    git pull; \
-    npm run build;
-    \"
-#addons:
-# ssh_known_hosts: 120.79.161.225/
+  - ssh root@120.79.161.225 "\ cd /home/MyBlog; \ git pull; \ npm run build; \"
