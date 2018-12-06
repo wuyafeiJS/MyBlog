@@ -9,6 +9,6 @@ before_install:
     -in id_rsa.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
 after_success:
-  - ssh root@120.79.161.225 'cd /home/blog/MyBlog && git pull && npm install && npm run build'
+  - ssh root@120.79.161.225 < /home/blog/build-blog.sh
 addons:
   ssh_known_hosts: 120.79.161.225
