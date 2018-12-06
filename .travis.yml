@@ -11,5 +11,6 @@ before_install:
 after_success:
   - ssh root@120.79.161.225 'cd /home/MyBlog && git pull && npm install && npm run build'
   - ls /home
+  - ls /home/blog
 addons:
   ssh_known_hosts: 120.79.161.225
