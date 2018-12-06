@@ -10,5 +10,8 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
 after_success:
   - ssh root@120.79.161.225 '/home/blog/build-blog.sh'
+branches:
+  only:
+    - deploy
 addons:
   ssh_known_hosts: 120.79.161.225
