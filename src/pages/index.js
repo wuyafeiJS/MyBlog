@@ -42,7 +42,9 @@ class BlogIndex extends React.Component {
                 {node.frontmatter.date}
                 {` • ${formatReadingTime(node.timeToRead)}`}
               </small>
-              <p dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} />
+              <p
+                dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }}
+              />
             </div>
           )
         })}

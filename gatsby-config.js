@@ -53,8 +53,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Overreacted`,
-        short_name: `Overreacted`,
+        name: `TraceOfFrontEnd`,
+        short_name: `TraceOfFrontEnd`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffa7c4`,
