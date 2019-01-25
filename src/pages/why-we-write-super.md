@@ -1,6 +1,6 @@
 ---
 title: 为何要写super(props)?
-data: '2018-11-30'
+date: '2018-11-30'
 spoiler: 译自 Dan Abramov 的博客
 ---
 
