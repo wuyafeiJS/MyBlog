@@ -1,7 +1,7 @@
 ---
 title: 三分钟建成个人网站，逼格极高（持续集成）
 date: '2018-11-30'
-spoiler: There’s a twist at the end.
+spoiler: react静态网站.
 ---
 
 最近，在一次日常舔大佬的途中，发现某位大佬([Dan Abramov](https://mobile.twitter.com/dan_abramov))的 Twitter 有个文章链接，果断点了进去。进去之后，眼前一亮，这是他的[个人网页](https://overreacted.io/)，页面极其简洁，操作流畅。作为一名合格的舔狗，肯定要果断抄袭。。。啊不。。。借鉴一下啦[戳这里](http://wuhub.top/)。顺便说下，里面文章干货很多，都是大佬创造 React 的心理历程，后续我准备一一翻译过来，嘿嘿。
