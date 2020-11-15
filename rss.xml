@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Trace of Front-end]]></title><description><![CDATA[留下自己前端历程的足迹]]></description><link>http://wuhub.top</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 14 Nov 2020 04:11:36 GMT</lastBuildDate><item><title><![CDATA[起底一次vue组件渲染失败]]></title><description><![CDATA[背景 大家在写 vue 组件的过程中，有没有遇到过这种状况：相似的两个组件开发，有个组件数据操作变更的时候页面能够及时响应变更，另一个却不行 最近在做重构任务的过程中，我就遇到了这种问题，如下图，一个 vue 组件:   预期的效果是，点击按钮，图片变成加载状态也就是转菊花^…]]></description><link>http://wuhub.top/then-principles-of-rendering/</link><guid isPermaLink="false">http://wuhub.top/then-principles-of-rendering/</guid><pubDate>Fri, 13 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;背景&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Trace of Front-end]]></title><description><![CDATA[留下自己前端历程的足迹]]></description><link>http://wuhub.top</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 Nov 2020 05:17:24 GMT</lastBuildDate><item><title><![CDATA[起底一次vue组件渲染失败]]></title><description><![CDATA[背景 大家在写 vue 组件的过程中，有没有遇到过这种状况：相似的两个组件开发，有个组件数据操作变更的时候页面能够及时响应变更，另一个却不行 最近在做重构任务的过程中，我就遇到了这种问题，如下图，一个 vue 组件:   预期的效果是，点击按钮，图片变成加载状态也就是转菊花^…]]></description><link>http://wuhub.top/then-principles-of-rendering/</link><guid isPermaLink="false">http://wuhub.top/then-principles-of-rendering/</guid><pubDate>Fri, 13 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;背景&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;大家在写 vue 组件的过程中，有没有遇到过这种状况：相似的两个组件开发，有个组件数据操作变更的时候页面能够及时响应变更，另一个却不行&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;最近在做重构任务的过程中，我就遇到了这种问题，如下图，一个 vue 组件:&lt;/p&gt;
 &lt;p&gt;
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/b94c16e95a70c9db14e938cdee93c991/e9c61/img13.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/b94c16e95a70c9db14e938cdee93c991/e9c61/img13.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAArCAIAAAD3xz8iAAAACXBIWXMAAAsSAAALEgHS3X78AAAEjklEQVRIx41WSW8cRRRuSJCCMBLLCSVBggMXJMiB5S/khswBBUugnDjwJ7A4ILAA5YSQuKLEcSwsQS45wIFEEYsVC+MszIxn6Z6Z3veluqtr4evpsT22Z8ZpPZWqu+vV9973vnrdyun3Pz/76Q8LS18vLK0899E3z3/87YuXrzxz6asn3/vsqcXl04vLGDF/+oMvXrh8ZeHDlZc++e7ZpZWFS1+eWlxWlOvy1V/khVvyzLpUVuUT16vx1Jp851d58Y589zd58bY885NUrknl6mj8cTTC1qTyympxYSN/62f62gY/v0bPrRaw89fyN9aztzei128kb64nL6/mZ68W546Zct9jDwben9sPN+83zChLmIyoCKnwC+kWEqNXVE+mmtIIWEsd3Nv8e2trK8tSeegScu6liMNrjy8Xs02hZWlYVpJltVsUx6ZlOZ5nmGZ/MEwJkfOdXd8vKK1x0ixzXC9KEtOydcPM82Kec8mYH4Qkz+UYOYEzMG3XDePE9XzEImciM4YVGRk7h2Houa5p6Kaue66DFLCdnI3MvSDIKa1zzriwC6ZltJ+V/wZlycVJOXt+XhTjsEvuULEbkUaQtqOCcjGPbca5H4ZIG1swwYMgUHs9kmV1lepF2KG2/fmBs+sHnh+gPIwzMN9s7cZJMl8eE2yH4X7YIHdo2YbrdbSBOjRMx3Vctz8cqv0+imeYFgqRpKncy5mZtp2hnkUuQfPOP4/u/N7d/Kv1x93W3dta4z8opttTdztd3bS0waCrqlGSHDj7fhAQ4mzfC9tNAXmTVKaxzDMZerLfmSrycdjQlm4YdhBacHYcvIBg4jStuKEF63f5BGGTbFXOo31GxRz0JKkUPgyijuUGlEk4a915paoQcElZ9nYFScFbJyk0UolElpSp7ROcx8iWLrotMVRlZT2ha7zT5EO1WiemS0VBDkVZQmdIvsxSmiRllvGccEJETma5jZ1JXnR6qKjR0/puEOqWHe+V8UQbIVNaI+8LUDym8z4yBLB/qo80sZORaXX+BKSOCTRbGec4sJjMdIaqIV2IdqDraAxoIAgE+aMHobdBz1p/MJdtADNWp1ojV0riosaHCFImmJgSf4Ws9ge252EdXiOE7Z2ddrfbVbWdB48azWZUsu9bREurt3yKwiZEiy2wHQwp1BGVQqqEF0JMQ6YUyEPdgGGp7bitdgd5dro9HFVk3lO1kXwfo84jZIp5BY4SjF7xOXXGWTcME/jwRNPGcQcacgbVCKmnaXw+2xXyXp1B8LjaVfGrEMScpo8qIz02Ytt2nEazBeQ8TbYCdrOfHyd5ku0RGh83GkKpH8deHLOybBPxMJ3b9EEPtGU5jmU7iILGMbFsYruZ67I0YZ6bGVatMD7lc8N5GMf4xGLAXCBDQliGw1wg+zLPWf0BmIoMtkB1GEWj3aXles12Z4BHjgOdm6g7vmSM3xoWFuFH8odzabteGMWY4B7BQySokD9qDDDDMMKc3tRzhzA0JJSE7dnBbwWAuTjUoMsopmG41+PGCyZNOZLGZGfGD0asG+Pns7rnLDvxh+Z/yaNtWzhBwOwAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img13&quot; title src=&quot;/static/b94c16e95a70c9db14e938cdee93c991/b9e4f/img13.png&quot; srcset=&quot;/static/b94c16e95a70c9db14e938cdee93c991/cf440/img13.png 148w,
-/static/b94c16e95a70c9db14e938cdee93c991/d2d38/img13.png 295w,
-/static/b94c16e95a70c9db14e938cdee93c991/b9e4f/img13.png 590w,
-/static/b94c16e95a70c9db14e938cdee93c991/f9b6a/img13.png 885w,
-/static/b94c16e95a70c9db14e938cdee93c991/e9c61/img13.png 1080w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img13&quot; title src=&quot;/./static/b94c16e95a70c9db14e938cdee93c991/b9e4f/img13.png&quot; srcset=&quot;/./static/b94c16e95a70c9db14e938cdee93c991/cf440/img13.png 148w,
+/./static/b94c16e95a70c9db14e938cdee93c991/d2d38/img13.png 295w,
+/./static/b94c16e95a70c9db14e938cdee93c991/b9e4f/img13.png 590w,
+/./static/b94c16e95a70c9db14e938cdee93c991/f9b6a/img13.png 885w,
+/./static/b94c16e95a70c9db14e938cdee93c991/e9c61/img13.png 1080w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
   &lt;/a&gt;
      
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/d35f943cd63f107baaf65bf538c16c62/e9c61/img14.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/d35f943cd63f107baaf65bf538c16c62/e9c61/img14.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAArCAIAAAD3xz8iAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEIklEQVRIx6VVS4scVRS+M4ngJDG28ZF5JJERA0JUxgcILl1okoWuRjEguMhPSGbjJhoiCoK4cSeKTjrBRwKuBHEjKD6IASfCZDr97q5Hv6u663XrPvyqbk9NkumumdHD5fa5VfWd75xzzzlNdk9OLBx99OjMgdnM1PwjmWPzc089NvfwfXsIIbsImYx3yL49U08/fvjQgX0vvfDM3AN7p/ffu2uCkHtOLs2e/iRz6oPMG+cffPPCQ6feP/jWh/sXz5GXz5DjS+TEWXL87OQrZ6Zee2f27Y8yi+8eOf3x/YvnMq+/t/vkEpnMyiNX5XM/yKlLknwlJ5Yl+TLaX/xJnvhZPv+jfPUXufeb+NUX0SvyeaRHKyvJ4Sw9djV89nsx/52Yucyms3TmUjiTDZ/81l+44j7xtbdwxTt0mR5cptMXw+mLao/XMiV/d8RKvfvrSu7azWKt67Z92XJ5yxOGK3UHu9Bd0fREa9Qiq7a8VdX//OP3a39dt2xbSsm5EAK/Il4y0TYvIv+HEMZ5o9Ho9/vqPBgMDMPodrumaUJxHCcNzDnvdDpBEKiz53nNZhOYdrsNo77vbwHu9XrAqLMzGMCWbhhADhwHegp5BLZtO2EA2O51Ow2zoWtQGqaZRDQajAgTsM9l2+cVh9d9/o/FPSa2cPt2sMtkL5SlfpjveZV+GDCeXNgIMO4UMQOP8KIQLKtSLA5sa/2Cpdgkd4ARlcJzxqDX6/WUOO92G7eSZBsmarWapmmFQqFYLELB22q1Wi6XcfM4VioVOy5EsEbMcDiJGTq+w0cwAYyu6zCHHUdYUXgU0hDMGIPPMIbasCxrh+XJGOoBhDCs/Ak8FwkTcX+MkyF4sz3NcgqtXtsLZcotJeANe0IwITSHmh5ruHRb4P/ekiB0XRddhQbATiFhVJNCbAMchiGuATlTbYycqwoR20BHzKgQcGJHwezMbcUMQlRCeuuPZmaxwArO2JUjSmgsfEwMUZEY8dzAju9QLaq2UTN40mq1sOObscxgwGtlHQqOyh1FjtQ1fO6PmgpDZhAqt5Hw1dXVXC6H7skXCrdyOTegn+bDssM31wyJp3wkihxKGAvbEG4zwUcV2zDbeiyIGaHm83k0Y6lUQuR4iNmQFrPiTMLm66IKPuXyI2aQIGywKWYch6PDMGqVCvxKY1YRqnPCGWWeC4+yLWaY+lsCLc5gRrbXcrnA7v3WEdlSIMc3ybAlk/kAW7Di43oZ61JhBiKlq4cxI6sGaptShj+9ajVA5ltt6Mw0A80Q6dlO7lmue7KhjO/NiBmJRaiqwuqatnLjxs21NSRcq9erNeS7DI8+y9O6e3eRReWp2ghgMGOeoEIxRvFwgOX7mMcBDa/3WB+Z53fImBkWuxo2W1TTdzAAb5/M1LJotzu8BTEi5/8Cftg+AXYvZMEAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img14&quot; title src=&quot;/static/d35f943cd63f107baaf65bf538c16c62/b9e4f/img14.png&quot; srcset=&quot;/static/d35f943cd63f107baaf65bf538c16c62/cf440/img14.png 148w,
-/static/d35f943cd63f107baaf65bf538c16c62/d2d38/img14.png 295w,
-/static/d35f943cd63f107baaf65bf538c16c62/b9e4f/img14.png 590w,
-/static/d35f943cd63f107baaf65bf538c16c62/f9b6a/img14.png 885w,
-/static/d35f943cd63f107baaf65bf538c16c62/e9c61/img14.png 1080w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 216.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAArCAIAAAD3xz8iAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAEEUlEQVRIx6VV24sbVRg/WVdw67LGWuima5CVIkhV2lIQfPPFlj7oiytUEB/0P1D3xRdbURQE8cXH3swqWtwHXwTBFxHxQi2yld0mJs1mkslMbjO5zO3MufjLnM3sspvMdunHyZfvTOY7v+/yO1/I9FTq5FNPHM8cPpaeWTyaPrG48OyTC0fmDhFCHiBkKtKQ2UMzzx3PPn549sXnTy08+nBm7qHpFCEPnl9eeOuL9IVP0q99+NiFj468/vHRNz6de/UD8tK75OwyOfcedOrsOzOvvJ9587NHli5m3/58bulieunS9PllMpWT2VV5+kc5syLJNZm6LsnVoX7hZ3nuF3nmJ/nyr3L2W0muy9SV4QvkcqSxcpJkv6EnVtnpH/jiDZH5ms3n6PxKeCxHn7nhn1x1n/7OO/W9l80F819RPMyM9HDlKPmnI9eq9m9rhZsbd2u22/Zly+MtTxiuqDvChHZF0xOtcYvc6cn/NP2vP/+4+fetbq8npWRcCIFvES0ZW3sXkfchhHHeaDT6/b7aDwYDwzAsyzJNs16vO46T5Mw573Q6QRCoved5zWYTPq1WC4f6vr+Ps23b8FF7uHU6lm4Y8Bw4TrvdRixJzt1uN0ZwBoOebbUbRqOuw2iYZpzReGdkGDv7XLZ9XnFYzeP/dpnH5D5h73R2mLRCWe6HRdur9MOA8bhhY5zRUzsSHIGDel27crfU73VHDZZij2w744OslDNjDHatVkvIc0yr4mrjiGq1qut6qVQql8swUHBN0zY3N9F5bCuVSi8iIkIYhg3nOGfYeA/gOAI+4AmOg8YWpyh/1byhM0JFzDgM3EDPDkhPxsAHnApMFQ/YhpzxXEyW7YLtErgh1DAM90fe1Qy1vRdPeb9XEjiu6yJPXAloSinCvldnRIg2oGbqGqPmiiE7mZSEDIYAE60GYQ4WNpBBCSCDCclXfzwy/JGnqjC0CkQJjYRPyGFIEiOaG9B4D1RR3AZt8ATDCHpSCYfIQFB8UgzBFrYylN3wuc/ERGQAqrBR8PX19UKhgNtTLJUK+bwb0C+LdNNhcs9YGCLzSBQ4jDASti28zwSflDOqXY8EOSPVYrGIy6guc13X8WtSzgozTpuPBHGosJL6DBCkDTSFjGGwNTrwsFKBnYSsMozvY4Qp1D+eR/k+w8CIBLDYA3ljYyNfKPg9+/eOWCnTiOeJVzK+zIDFKT7+ulhoUWEGQk4e3Fs5q2qDjaxjBZoW6HXaamOsMtP064ZIrnbcZzmKZMvgYmSL8cgoLDisGFbT9bXbt+/k85pW1Wu6Vq2Caj6ll4thzeW7zhgWTF0jOAMZ8wQMxQzGwwGW78MOaHjLZn3KtjkQyYQZFoUaNptU1w8wAHeO0bDbpZa11QUxJun/AbpePl8pLjSrAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img14&quot; title src=&quot;/./static/d35f943cd63f107baaf65bf538c16c62/b9e4f/img14.png&quot; srcset=&quot;/./static/d35f943cd63f107baaf65bf538c16c62/cf440/img14.png 148w,
+/./static/d35f943cd63f107baaf65bf538c16c62/d2d38/img14.png 295w,
+/./static/d35f943cd63f107baaf65bf538c16c62/b9e4f/img14.png 590w,
+/./static/d35f943cd63f107baaf65bf538c16c62/f9b6a/img14.png 885w,
+/./static/d35f943cd63f107baaf65bf538c16c62/e9c61/img14.png 1080w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -127,16 +127,16 @@
 这个第一反应一般都是用 chrome 插件：&lt;a href=&quot;https://github.com/vuejs/vue-devtools&quot;&gt;vue devtools&lt;/a&gt;
 其实有个超级简单的方式：直接用&lt;code class=&quot;language-text&quot;&gt;console.log&lt;/code&gt;，浏览器已经帮我们做好标记了，我们打印一下试试：&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/643100bc0c9c2fb0c26c282af7131568/68176/img17.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/643100bc0c9c2fb0c26c282af7131568/68176/img17.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 55.604719764011804%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABlElEQVQoz52R207bUBBF/T+8QJu77WMnvidpINgRlMjyLYE6bRKnAcJNAvEE/PRmznEo6hvwsDSz50hL9ozUdnJ4gwUqcoo6m6CuEsoETW2KBpuKymmxU5EF2hb+/jbfZsnu/kJRXMEdXuDgaANvfw23t4buziG3Z1CN31CMGbQ2ZT0Ho5luU7ao0lvHmIN1yhkzc0g1JUNVzTAZb+AH57C6M3hOhq4dwzZjWEYMh6prRTCpb7IEu80E34i9N1rptk9JSLKdWoQi3CAcX2I0WuCgP8XAjeD3YgT9Et47ViIwjFTAe8tM/2XLTErhbj1CGN0jmjwiOLmB4S2haDm+014rckY1E7Wm0J7Vdxrq/5kj8WPU6BDeYIV+sAHrLkXmq6gopbC6rR9BkjtnSKYP8Md3CA8XOJZHqMsxyUrRZ5E0O0dx/kIXvkboLxE6CRqtdyH/g6roP4bErBzzv8/wf15jeHILvbdCUz8Tj5+VCaHGhatncYz94ALOjyVa7VJY/arwT/GEw+Mr9IZrISuvm37pK18BH6qhwl1eukkAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img17&quot; title src=&quot;/static/643100bc0c9c2fb0c26c282af7131568/b9e4f/img17.png&quot; srcset=&quot;/static/643100bc0c9c2fb0c26c282af7131568/cf440/img17.png 148w,
-/static/643100bc0c9c2fb0c26c282af7131568/d2d38/img17.png 295w,
-/static/643100bc0c9c2fb0c26c282af7131568/b9e4f/img17.png 590w,
-/static/643100bc0c9c2fb0c26c282af7131568/f9b6a/img17.png 885w,
-/static/643100bc0c9c2fb0c26c282af7131568/2d849/img17.png 1180w,
-/static/643100bc0c9c2fb0c26c282af7131568/68176/img17.png 1356w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img17&quot; title src=&quot;/./static/643100bc0c9c2fb0c26c282af7131568/b9e4f/img17.png&quot; srcset=&quot;/./static/643100bc0c9c2fb0c26c282af7131568/cf440/img17.png 148w,
+/./static/643100bc0c9c2fb0c26c282af7131568/d2d38/img17.png 295w,
+/./static/643100bc0c9c2fb0c26c282af7131568/b9e4f/img17.png 590w,
+/./static/643100bc0c9c2fb0c26c282af7131568/f9b6a/img17.png 885w,
+/./static/643100bc0c9c2fb0c26c282af7131568/2d849/img17.png 1180w,
+/./static/643100bc0c9c2fb0c26c282af7131568/68176/img17.png 1356w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -204,27 +204,27 @@
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;初始化为左图，渲染为右图&lt;/p&gt;
 &lt;p&gt;
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/b2f2e35be8ff4073c6a18ca08b81bfa0/f0a9a/img15.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/f0a9a/img15.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 115.9468438538206%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsSAAALEgHS3X78AAAB5klEQVQ4y61V2YoCMRCc//8gHxQVVFTE+8ATb7xvxVtrqYYMMc64I7uBJiGTtNWVqtZqt9solUqYTqcydzod9Pt95HI5bLdbcDyfT3gdFi9Xq1WMRiPU63X0ej10u11UKhXsdrvvE/524JtkdsLZbIbVaoVCoYD5fC4f7vc7Ho+HhErqJbmlX/4PpJZ+kOvT6YTFYiFcTiYTFItFLJdL+7se+t4LQv3j4XDAZrORR2LSWq0mdHhFbXkt6Xa74Xq9yjnOpMlE7YhQrSkZhZCRz+cRDodlz+/3y54TDZZbGXwkhYhrIlKoPD2KE+FqkFfGeDxGs9kURzUaDZTLZUFKY6zX69eSzST6Hm1JrdKWtGQ0GkU6nUYikUAsFkMkEpEfe5ON0qMpJa/D5pDuoPZSqZR4WCVVYbrFKV5kQ/IZ5IFcfULwKd5KVmXv93sMBgNxCNFzrazp5pY3p6jS2AP5CJlMBq1WS141m82KsM3Lf3KK0qZ53rzn6hSWzW7OZkt5DIdDmak/6i6ZTNqtTn80y0175PJ8Pkuj4EV2Ic7H41GC+2bLc7SeUxlUABNSBWxpFDl5ppjZlViF6kiuXtbR8hKT0CU+nw+hUEgaRSAQQDweRzAYFCq+/k8hBZfLxZ4ZqpVRBTz7A0Bs+7yoZ6z0AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img15&quot; title src=&quot;/static/b2f2e35be8ff4073c6a18ca08b81bfa0/b9e4f/img15.png&quot; srcset=&quot;/static/b2f2e35be8ff4073c6a18ca08b81bfa0/cf440/img15.png 148w,
-/static/b2f2e35be8ff4073c6a18ca08b81bfa0/d2d38/img15.png 295w,
-/static/b2f2e35be8ff4073c6a18ca08b81bfa0/b9e4f/img15.png 590w,
-/static/b2f2e35be8ff4073c6a18ca08b81bfa0/f0a9a/img15.png 602w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img15&quot; title src=&quot;/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/b9e4f/img15.png&quot; srcset=&quot;/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/cf440/img15.png 148w,
+/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/d2d38/img15.png 295w,
+/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/b9e4f/img15.png 590w,
+/./static/b2f2e35be8ff4073c6a18ca08b81bfa0/f0a9a/img15.png 602w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
   &lt;/a&gt;
     
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/64f904059ea2acdc323e685b5240b757/34e8a/img16.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/64f904059ea2acdc323e685b5240b757/34e8a/img16.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 114.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsSAAALEgHS3X78AAAB4klEQVQ4y6WV14rCUBCG8/4PpIIoXiioN3ZR7L13xe4s30CCmz0xkQ0MJxcnU/4ysYbDoZTLZVksFlKr1aTdbstkMpFisSir1Up4Xq+XBH2swWAghUJBSFytVqXRaEiv15N8Pi/L5fL7hH4XvknmJNxsNjIajSSXy+k7z/1+l+fzqWEn5fQroAn56PF4yPl81vf/dGq5L95uN9nv99rxbrdTkt7JeQ9TMcs9yuFwkPV6Lc1mU7rdrmQyGYE408jvUBhJ8RvLhKX7G8vrAngyLnIqlUqq0XQ67XSNTsHdDYPl1QXkXC4XxZQTXNEl7PN+Op0+k+IFuC0hO2m/35fZbKakEePxWKfAaTRhmZK5E0MSiXBQKBSSaDSqkUwmJZVKSSQSkUqlooUtLyJMoDO+rVl3kMzBkFHm87kCDwFc8IPho1Ou16scj0cHj09d+4VxZDpE4BSyizFSEK3+IQW7TadTicfjqjUiFovJdrt15MQ999L46JRvVpbRKaYLjIq27LUGvkijXq8rztlsVjf7e9e/nOLuDomQkGi1WuoStEgBdIkFgSfQxvYamSJ4nMA5nJAHaVjRcYoXjvaypbtOp6P/G5ySSCQct4TDYXUK606dEnRd2VKCbX4TjMvJ+ARd0sAPno76zMSiVCEAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img16&quot; title src=&quot;/static/64f904059ea2acdc323e685b5240b757/b9e4f/img16.png&quot; srcset=&quot;/static/64f904059ea2acdc323e685b5240b757/cf440/img16.png 148w,
-/static/64f904059ea2acdc323e685b5240b757/d2d38/img16.png 295w,
-/static/64f904059ea2acdc323e685b5240b757/b9e4f/img16.png 590w,
-/static/64f904059ea2acdc323e685b5240b757/34e8a/img16.png 600w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img16&quot; title src=&quot;/./static/64f904059ea2acdc323e685b5240b757/b9e4f/img16.png&quot; srcset=&quot;/./static/64f904059ea2acdc323e685b5240b757/cf440/img16.png 148w,
+/./static/64f904059ea2acdc323e685b5240b757/d2d38/img16.png 295w,
+/./static/64f904059ea2acdc323e685b5240b757/b9e4f/img16.png 590w,
+/./static/64f904059ea2acdc323e685b5240b757/34e8a/img16.png 600w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -266,16 +266,16 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;p&gt;往往简单的东西最容易被忽略。vue 数据劫持的原理大家都清楚，但有时候真遇到类似问题却很少第一时间按照原理逐步分析，抽丝剥茧，因为实践中经常因为数据太复杂或者业务逻辑嵌套过深而忽略这方面的思考。&lt;/p&gt;
 &lt;p&gt;还有一点，这个图也容易给人造成误解, 以为 data 下的属性只会劫持一次&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/a7d73316b8cc8d66b9580dec8a60e39f/a5d5c/img18.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/a7d73316b8cc8d66b9580dec8a60e39f/a5d5c/img18.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 53.42465753424658%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAABqklEQVQoz21Si46jMAzk/z/wVO220Kot5ZEACYFACMza7hb17mppZBM5g2ecZF1X/ItlWTDPQRDCgleEuKCZHdrgENcoZ9wfY9zvJvzxxCJEHErVOB6/kGVH5Pkd4zii1Q0ubYFs0UiDQmEUemPlzrZtO2lCNV7gmKaA6+0bVX2Abr5QVhkejwJd12GYPFTooeceRVXC04/O5zOstUIqhLavYEwpsL2hbNG2NYwtBX3f7pI3lkWTYN1gqc8YA++95Jf8ROkDivIPanXA/X6hw02mDSGSnCe4UQi3TcChtabJHyKZ8zRNIjvpnYJzmqYjT2jCrjO43U5o2gxNk1LOyUOPuq7ou6GeHlVVCWGWZTTMiazJoHSG0btfD1ce9ykrxpUuX2nib2ripZyIxGEYnHg1+vHp5zDImW5OaLuj+D2O9n3Lcd8U5zzPadtKpHDdtuTlhn17fF4UvKyafCTvLfd6JJ/eISOEIP5w7ZxDfr9Ddw1M9LDTgDRNRfr7C2F/d8L36d4fKtccTH5xNdKJ3qij7Y/Dr0V/q/uP8FP9+rZhxNU3ULPFJ6sYPwGyU4LKx2Z3AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img18&quot; title src=&quot;/static/a7d73316b8cc8d66b9580dec8a60e39f/b9e4f/img18.png&quot; srcset=&quot;/static/a7d73316b8cc8d66b9580dec8a60e39f/cf440/img18.png 148w,
-/static/a7d73316b8cc8d66b9580dec8a60e39f/d2d38/img18.png 295w,
-/static/a7d73316b8cc8d66b9580dec8a60e39f/b9e4f/img18.png 590w,
-/static/a7d73316b8cc8d66b9580dec8a60e39f/f9b6a/img18.png 885w,
-/static/a7d73316b8cc8d66b9580dec8a60e39f/2d849/img18.png 1180w,
-/static/a7d73316b8cc8d66b9580dec8a60e39f/a5d5c/img18.png 1460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img18&quot; title src=&quot;/./static/a7d73316b8cc8d66b9580dec8a60e39f/b9e4f/img18.png&quot; srcset=&quot;/./static/a7d73316b8cc8d66b9580dec8a60e39f/cf440/img18.png 148w,
+/./static/a7d73316b8cc8d66b9580dec8a60e39f/d2d38/img18.png 295w,
+/./static/a7d73316b8cc8d66b9580dec8a60e39f/b9e4f/img18.png 590w,
+/./static/a7d73316b8cc8d66b9580dec8a60e39f/f9b6a/img18.png 885w,
+/./static/a7d73316b8cc8d66b9580dec8a60e39f/2d849/img18.png 1180w,
+/./static/a7d73316b8cc8d66b9580dec8a60e39f/a5d5c/img18.png 1460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -283,16 +283,16 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
     
 &lt;p&gt;应该加条线，如下：&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/d8009285d5eb3d0448f3a2f56b021a7e/a5d5c/img19.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/d8009285d5eb3d0448f3a2f56b021a7e/a5d5c/img19.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 53.42465753424658%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABlElEQVQoz11Si46bMBDk/3+wyiUBekcwGL/WxvEL7K7NtToVjSweu7Mzs3THeSJSOxExJR8iIqSUS0GEI/FoRbTxPPGxluGFZ85dOo4L8ThKKRvb7o+Pfni8yGydl1z9VrQ/1TOJGbjWBtnPnNNRJ3Vno6+cpeDAz+m+sNsm78s6TgthiqlgFsdZ3Ald384N46i1xv7aDJoqWCWsYECBFlhtqNqZZkuw0iSc9rJWIDkASADnPWh96e+ouBH6i/LbNH822zmmA5FqALE4jyOarMI4nwlBd2QhPgR02uld6F2CEWC0VPA1PZkYmBy4JNb7lW1M4CezrBSb+3GY134T48ZH+947pK04q3OMgm7Tyh5UPCfSg9mNtSjSOieV2q1FILWAHkPZ37qljatqgR/tBrUxLtDbixAhZc4lN93OO7JiOuzttdLCB9/9t2eEj3XJyIJjX/PMQKrT6+Cew7BQeimtC8LAvnuusT8oUls7bnW07BHYw1LtbKnWsPJo59/mS/NPFdcb/KkguS8vt2j+WftGzn8A4Ht3UdyystQAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img19&quot; title src=&quot;/static/d8009285d5eb3d0448f3a2f56b021a7e/b9e4f/img19.png&quot; srcset=&quot;/static/d8009285d5eb3d0448f3a2f56b021a7e/cf440/img19.png 148w,
-/static/d8009285d5eb3d0448f3a2f56b021a7e/d2d38/img19.png 295w,
-/static/d8009285d5eb3d0448f3a2f56b021a7e/b9e4f/img19.png 590w,
-/static/d8009285d5eb3d0448f3a2f56b021a7e/f9b6a/img19.png 885w,
-/static/d8009285d5eb3d0448f3a2f56b021a7e/2d849/img19.png 1180w,
-/static/d8009285d5eb3d0448f3a2f56b021a7e/a5d5c/img19.png 1460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img19&quot; title src=&quot;/./static/d8009285d5eb3d0448f3a2f56b021a7e/b9e4f/img19.png&quot; srcset=&quot;/./static/d8009285d5eb3d0448f3a2f56b021a7e/cf440/img19.png 148w,
+/./static/d8009285d5eb3d0448f3a2f56b021a7e/d2d38/img19.png 295w,
+/./static/d8009285d5eb3d0448f3a2f56b021a7e/b9e4f/img19.png 590w,
+/./static/d8009285d5eb3d0448f3a2f56b021a7e/f9b6a/img19.png 885w,
+/./static/d8009285d5eb3d0448f3a2f56b021a7e/2d849/img19.png 1180w,
+/./static/d8009285d5eb3d0448f3a2f56b021a7e/a5d5c/img19.png 1460w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -300,16 +300,16 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
     
 &lt;p&gt;最后的最后，给大家出个小问题，如图，这种情况是怎么形成的？&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e81b53b6e67a68dab72831373dd9b385/cfd63/img20.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/e81b53b6e67a68dab72831373dd9b385/cfd63/img20.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 33.42579750346741%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABqElEQVQoz02R247SYBSF+zDGMaPRmRFoaUtpy2kaVIZwMMBwKLSWHpgQRSbGSMZ7442J+gbe+AC+3eemUePFylrJblbXl18ZT3doToztbajUUyo1USOhbMeU3QTLjWk1Uur1oyfUWzGGE2E5Sa48N2JUK+CpvkQJwx2D/o5+d8uLdoYnxWN3SmT2aFszRs8zftze8XN/4Nfuli/ZOzQ7oiIjTHuN6axlxBqtGlKqBChldcphtmZxFTNpR4zrcwbmhFozxnUj3FpC4zLFa25oNSULhS2LbLk7QuO4WV5clfV2M0WxtGvepge684+4nV1+8IwxFX2GZvicmQEXxorHZZ97hQUnpQX3Sz4nxQUPxC8Es2iuKBjLXEpFCt+He4LlB0aDN3QvIzr6SyZqR3RFtzykqk3oeRHfotd88m/47qd8fbXl82qL7YT/So9SVHPJ9bNIkBOGrYC2PsIyZjwxQ1T5o2EsKOoLQY1YD26Yd2KyQUY23BD0MvSqPIbxX+EsuKM/PeD19pwL3pkhH8ihdEQQP+ajn8uKU8F9pPmcqn6eH4r/LSv88d+DHBGy7YunLgAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img20&quot; title src=&quot;/static/e81b53b6e67a68dab72831373dd9b385/b9e4f/img20.png&quot; srcset=&quot;/static/e81b53b6e67a68dab72831373dd9b385/cf440/img20.png 148w,
-/static/e81b53b6e67a68dab72831373dd9b385/d2d38/img20.png 295w,
-/static/e81b53b6e67a68dab72831373dd9b385/b9e4f/img20.png 590w,
-/static/e81b53b6e67a68dab72831373dd9b385/f9b6a/img20.png 885w,
-/static/e81b53b6e67a68dab72831373dd9b385/2d849/img20.png 1180w,
-/static/e81b53b6e67a68dab72831373dd9b385/cfd63/img20.png 1442w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img20&quot; title src=&quot;/./static/e81b53b6e67a68dab72831373dd9b385/b9e4f/img20.png&quot; srcset=&quot;/./static/e81b53b6e67a68dab72831373dd9b385/cf440/img20.png 148w,
+/./static/e81b53b6e67a68dab72831373dd9b385/d2d38/img20.png 295w,
+/./static/e81b53b6e67a68dab72831373dd9b385/b9e4f/img20.png 590w,
+/./static/e81b53b6e67a68dab72831373dd9b385/f9b6a/img20.png 885w,
+/./static/e81b53b6e67a68dab72831373dd9b385/2d849/img20.png 1180w,
+/./static/e81b53b6e67a68dab72831373dd9b385/cfd63/img20.png 1442w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -356,13 +356,13 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;hr&gt;
 &lt;h3&gt;方案一：背景水印&lt;/h3&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 354px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.40112994350284%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAjCAYAAACU9ioYAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAFu0lEQVRIx5VWW09UVxQ+P6LP/QNN+tQmvvXFB1NFJWIivWmpBlupbVQUQazWilZFE9ukaehFrVAFBVEU6qUaofBQHxQpMAMMc59znXOZGwMDX9faZ4YZQE07yZe1z95rf3vtddsjlR/swKb6dmw+1IGNde1YV3sFZbVXsW7fVWw40I5ymmNZVtuOjSQrGjqwOY+K+g7xzXJDXSsqGlshVdRfw44TN7F+/xVsb7qBXadv0fct1DTfwY6mbnx26iZ2nurGR0c76fsGNtV1YN2eqyjbWwR/n20bxNavuyFVHu7CB0e6sKXxOhF149OmDlQ1/Izqo7+huqkLXzTfxm5C9clucdiHX5Fuw3VUHupEZUMeNN57/g9sO9YFyeuLwEPwTkcwGVQw7vXhn2dPMT42Bq8vCF4vwDMVFnJiOg8xH6L5EEY8AYyTlMx4HHEjDkPXkEomkLBMKP4J2HYcyURCrLHOUpg0b0DXNLGPx5aYNyCpqg5FUcFSjoQQHBvGw85LGB15CtOyaE0Xa8vB88oL5vOEGjTNgKbKCAenECILdU1FnCzhNdbhdVU1lsjCuHReMnQy1U5AN0zouo5oNIyYHIEsK4jFZCJUSJEPfLGl7mFFKU36Qxh/+gxyMIhwJIZQKELEfJoifKRpbKEqZCncQ4qyAOn2g35caj6HkaFBxOh64XAY0VhMLMZIqqyo64KU4VqsLh5UgKa5UvIHQvBN+YVVj/58gJrqKmwpX4P6+v04ee4cGo8exu9tl2FQJGVZfiFhqdWSTj7k+2cyM6g7uB9vvP4aDlS+i/P7qvB1Yy1Wr12L4yea4DiOINNe4obCt4iyLKtIpWZw9Pg3WLPqTXy/dyd+PbgDPxyvx3s7a3C+5RfYIoWUJVYVXFA4SFyZw60QoWnZONt8Bp+UrUbz7o/x455tOP1lFd5ZX45jZ7+DYztLrstjdsHyAwQhW5hMpnCgoR5vr3oLn79PJLu2oW5fDcoqNgjLlxOuiLzqQirkkq6bGBsdxZMnf+P58HOMEManfAiFA5RKAVLWi/7iiL4EUmmCmqYNx0pSXdpUn6bIQ1UmIq4GugW7RuWqYvKXQETZMCzabLhlJrvQqFYDfuo2Xi884x54PSQ9HvinA9C51GhdV4wVkIKhIDyTXkRiiluPpMjKTBoVlROm+mZEEKZxJBIVviqQrrCwq/cWznx7BEP3esgHVMu0gZM84SQoldJIExKJpGgUrvPdAxcJS8YspbbOLtRsrcLDtovo/2sInZ2dIuOHh4fR29eLnp4eDA4OUbCewKLUKt1cQCmpFAyH0P94gCI8hrv37uPOnV7MzMygv78fFy5cQEtLC/r6+jAwMJAPiOsr4RaFA6UIuUioU8e1LFO0ntnZObzql05nhI95M5MzWdE6w/VhsXxUsWF+fl4gl8sRCjKHhYUFZGh9+XVLgyOiLEqHnC2z2RQMg98Xfi90Q1jN0MWcKeb0FYTLotxz/zZaW1sw9Oi+aLABf4AeHvaPW2Y6E2qGkKIACmmVl8vzUfqp9TK2V1bi7sUWJKmFRTULsuFAt5MwE2kYdkrAdFJI03o2O1uCrKio0nyUvJM+XGu/jqH+x5idy2FaS2BStjBFGI+YmIzZmFYd+AiZ2dyKQJmmWWwY3A/ZN0lKXn4y0+k0/JpDRHFB6omaeBYwBHGGMmCOgpWlQ2cpSPMUJEacCBVuDLpWbA5cwwyujKCeFAQjoThGiZjHEzFLWDop25ggxKw05vMWGlYcMj1oLiFZWCDjZ1OUFj8JBFlzoVBb0+OWgMagRmJaDmzHzv8RUMTeQsAkixa5bXGtxmmDRWMuMVvAEWOB/DxjUZ+u61iJvB7BdCDZ9Mizhdks+Whunqol95/Autz6olEZCer2LFOpDP1ZotNi1LoymaxQZOJsNvcKzAnkcguCZGLCR8GcETm8SGialgBf+f+Ar8k3NIU7XNf9C4wqtalXwCVDAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img01&quot; title src=&quot;/static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png&quot; srcset=&quot;/static/38a7897e0dfc6a945de210f2acb43653/cf440/img01.png 148w,
-/static/38a7897e0dfc6a945de210f2acb43653/d2d38/img01.png 295w,
-/static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png 354w&quot; sizes=&quot;(max-width: 354px) 100vw, 354px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img01&quot; title src=&quot;/./static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png&quot; srcset=&quot;/./static/38a7897e0dfc6a945de210f2acb43653/cf440/img01.png 148w,
+/./static/38a7897e0dfc6a945de210f2acb43653/d2d38/img01.png 295w,
+/./static/38a7897e0dfc6a945de210f2acb43653/1a1ab/img01.png 354w&quot; sizes=&quot;(max-width: 354px) 100vw, 354px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -373,13 +373,13 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;hr&gt;
 &lt;h3&gt;方案二：遮罩水印&lt;/h3&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 544px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.75735294117646%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAkCAIAAAAGkY33AAAACXBIWXMAABcSAAAXEgFnn9JSAAAE1ElEQVRIx51UTW8cNRh2ulRpummiJmkEEvQAUlUO/AiKQFQVFESBC4JfUII4cGsiDhzgABKVKvFxQ0gF1BahlpYiQEKonFCbj002ye5msslust+79ow9tmfGPB4ny8KpZfTKesdjv/M+HzbJPpR5dGxk6lAmM0T+87iJYUKmRw8+Mn7o4bHD02Mj00eGH5saPX5s/OSTU2T43LsTb81NvHnh4Nl3MmfOZ868nTk9k3l+5sBzM+TZGXLq/PDp9yZfmZ06Nzfx0uzEixeOvfz+5Nm5yRdmj7/xAcn+YaZ+N+Rnc+C2ITfN0A0zdN2Qq+bo9+apW+bkj+bxa4Z8aYa+MOQzQy4ZcjGNjw350JCjN/n0DXHkejT+gx69Ema/5dnL4fBX4dTX/MR3/olv6BOX+cjnKnspPHwRIbOfasToJ1H2I0k8Hns8WWmy+Uoz32RlnmyyqBwk6111t0Lna3zBa3k15vmJR+PVBs9VerkqXfOa5bYiSZIYY2o7lfzKcqtZR+5mpOC17c1Wfbe9s22UtFPGdFv16pZXrZR5u26SmIRKhjIMtP5r12/7QikpwhAzUqkojhA8FEEosEzIUMWRTkMlEQsCwgI/TpIoiqQM3T8TG0mMDkyCdSgVJyhjHx1prSN80yrqUUqkVrVGfX5xobhRWius59dWS97GerGwuVXG68LSYrFUZIz14USJrnRLOz0PtQg+dGmv0Wq2u51mu+WSVqeNfKe2W2828FUp1d8MXG3WEBFDD6TT7eDnaMWBcQlGIQSSOO1caQ0KXAR+oBXatwuIzwNASlKEFiTAa3ClQRVGl+t9nlxdu86YUErLNhpbWc3nV/OAilopsDhOObMBOtPXyOAfRkZhlZZqQVkpTXgqA7BtVbYBFX9O9gg3jnAu+P6kBY1CgaKBpsxnVir0hhUogQ4xohwkRVcYqc8CHlgvDASQ+wHHRotZhKKvsHvcf6SS8Z488QDsOBQS7kEVQhmr1WuLuaW19TWIDPCFUnG9ULCar+bta7FIGXUlUMnnrNxeqwdbkIAEgkspoSpo6/S6gA3rdLrdHu31GG00m5gELrNHgdGxFlGAkNjsp5CAti9Mf7RJrB0RwO8iTOkIIXjI7ea0n0Ra7aM+yU4naymND2pQ6jhlCERab0MnoHVOzq0sO4cX4fDC+uLSIugAoj5mqzPbqNINn/kEnXAhABIJ2AdOjFYhwSmltXodrQ10ZEdfUiao9TboAeHKIdxHbk8iavl+OqMGMQec9xiD1LCGPRhRHO8fYPsAEnKsw3zarbVnP2AhlN7ztsO8nF+BsReXlnK5HAR3agM5zjnyf2GOZYUWd33P6uy8DZxADjMAM0A6zEggMhI0n5KfHg+cVlxNsbCbsc3qrBVuBZG2NKgzXllayLlaWPDwNo63BsdWZwC2h1brfyhN9u4wEANsfcD9Y4/t2Ejceby3MA9suMZw9UBtXGDI787fA3JXyDXstYNCy1+otkotituEgAx4Bc2jkmuPpkA6eHpdizb1U9oU2IqBgfEQTQIpwQrrWAfJuTdNXCFroVD0A6T4KA13K+m7e7uXknz/gbq4YVGLQJX7D3sNR/rOn3deff21W7d/euDNEO+X3359+plTV65dfbDNLoB2s7xp77D/sRnh7sa/AcDDeGJth2IPAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img02&quot; title src=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; srcset=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/cf440/img02.png 148w,
-/static/45e515ca5c09a787a9ac280555d75c1e/d2d38/img02.png 295w,
-/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png 544w&quot; sizes=&quot;(max-width: 544px) 100vw, 544px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img02&quot; title src=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; srcset=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/cf440/img02.png 148w,
+/./static/45e515ca5c09a787a9ac280555d75c1e/d2d38/img02.png 295w,
+/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png 544w&quot; sizes=&quot;(max-width: 544px) 100vw, 544px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -419,26 +419,26 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;npm install yl-page-watermark -S&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下面我们说一下优化点。&lt;/p&gt;
 &lt;p&gt;
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 544px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 177.75735294117646%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAkCAIAAAAGkY33AAAACXBIWXMAABcSAAAXEgFnn9JSAAAE1ElEQVRIx51UTW8cNRh2ulRpummiJmkEEvQAUlUO/AiKQFQVFESBC4JfUII4cGsiDhzgABKVKvFxQ0gF1BahlpYiQEKonFCbj002ye5msslust+79ow9tmfGPB4ny8KpZfTKesdjv/M+HzbJPpR5dGxk6lAmM0T+87iJYUKmRw8+Mn7o4bHD02Mj00eGH5saPX5s/OSTU2T43LsTb81NvHnh4Nl3MmfOZ868nTk9k3l+5sBzM+TZGXLq/PDp9yZfmZ06Nzfx0uzEixeOvfz+5Nm5yRdmj7/xAcn+YaZ+N+Rnc+C2ITfN0A0zdN2Qq+bo9+apW+bkj+bxa4Z8aYa+MOQzQy4ZcjGNjw350JCjN/n0DXHkejT+gx69Ema/5dnL4fBX4dTX/MR3/olv6BOX+cjnKnspPHwRIbOfasToJ1H2I0k8Hns8WWmy+Uoz32RlnmyyqBwk6111t0Lna3zBa3k15vmJR+PVBs9VerkqXfOa5bYiSZIYY2o7lfzKcqtZR+5mpOC17c1Wfbe9s22UtFPGdFv16pZXrZR5u26SmIRKhjIMtP5r12/7QikpwhAzUqkojhA8FEEosEzIUMWRTkMlEQsCwgI/TpIoiqQM3T8TG0mMDkyCdSgVJyhjHx1prSN80yrqUUqkVrVGfX5xobhRWius59dWS97GerGwuVXG68LSYrFUZIz14USJrnRLOz0PtQg+dGmv0Wq2u51mu+WSVqeNfKe2W2828FUp1d8MXG3WEBFDD6TT7eDnaMWBcQlGIQSSOO1caQ0KXAR+oBXatwuIzwNASlKEFiTAa3ClQRVGl+t9nlxdu86YUErLNhpbWc3nV/OAilopsDhOObMBOtPXyOAfRkZhlZZqQVkpTXgqA7BtVbYBFX9O9gg3jnAu+P6kBY1CgaKBpsxnVir0hhUogQ4xohwkRVcYqc8CHlgvDASQ+wHHRotZhKKvsHvcf6SS8Z488QDsOBQS7kEVQhmr1WuLuaW19TWIDPCFUnG9ULCar+bta7FIGXUlUMnnrNxeqwdbkIAEgkspoSpo6/S6gA3rdLrdHu31GG00m5gELrNHgdGxFlGAkNjsp5CAti9Mf7RJrB0RwO8iTOkIIXjI7ea0n0Ra7aM+yU4naymND2pQ6jhlCERab0MnoHVOzq0sO4cX4fDC+uLSIugAoj5mqzPbqNINn/kEnXAhABIJ2AdOjFYhwSmltXodrQ10ZEdfUiao9TboAeHKIdxHbk8iavl+OqMGMQec9xiD1LCGPRhRHO8fYPsAEnKsw3zarbVnP2AhlN7ztsO8nF+BsReXlnK5HAR3agM5zjnyf2GOZYUWd33P6uy8DZxADjMAM0A6zEggMhI0n5KfHg+cVlxNsbCbsc3qrBVuBZG2NKgzXllayLlaWPDwNo63BsdWZwC2h1brfyhN9u4wEANsfcD9Y4/t2Ejceby3MA9suMZw9UBtXGDI787fA3JXyDXstYNCy1+otkotituEgAx4Bc2jkmuPpkA6eHpdizb1U9oU2IqBgfEQTQIpwQrrWAfJuTdNXCFroVD0A6T4KA13K+m7e7uXknz/gbq4YVGLQJX7D3sNR/rOn3deff21W7d/euDNEO+X3359+plTV65dfbDNLoB2s7xp77D/sRnh7sa/AcDDeGJth2IPAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img02&quot; title src=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; srcset=&quot;/static/45e515ca5c09a787a9ac280555d75c1e/cf440/img02.png 148w,
-/static/45e515ca5c09a787a9ac280555d75c1e/d2d38/img02.png 295w,
-/static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png 544w&quot; sizes=&quot;(max-width: 544px) 100vw, 544px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img02&quot; title src=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png&quot; srcset=&quot;/./static/45e515ca5c09a787a9ac280555d75c1e/cf440/img02.png 148w,
+/./static/45e515ca5c09a787a9ac280555d75c1e/d2d38/img02.png 295w,
+/./static/45e515ca5c09a787a9ac280555d75c1e/6c314/img02.png 544w&quot; sizes=&quot;(max-width: 544px) 100vw, 544px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
   &lt;/a&gt;
      —&gt; 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/a0456dd94eb2bcebf405aea6d1534606/34e8a/img03.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/a0456dd94eb2bcebf405aea6d1534606/34e8a/img03.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 148.83333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAACXBIWXMAABX9AAAV/QHNcFFhAAADiElEQVRIx6VVTYsdRRTtRVxlkxAVQlaCujMg4m+YPzRLIai4EFGSmQkITlDcTEQw2egI/gOjEZWRF94bkYHJ9Hv9+fq7+3X3yT2Vvk5N540RLTjcrtu3Tp17b1W3c3HvBBf3XLzwpYsLX7i4LPay2Bc/d/HyHRcvfebiyqfiu+3i0rbMBVduCj4R30ey7n1Z967ghuAdF47zHeB8K/hG8BVwbR+4/gPwuvjf+h54W+av3gPeuA+89jXwyh7wptjrd4Grd2TNh4IPBO8Jbgg+nq6w82cr6HH7ENieATtT4NajHlsTeZ70uHXQY1uwcwDc/E3ifge2fpXnhxLzsMPWz4KfOmw/6OBAR5UCWYg+DQyQR+gT31hUS6CI0KUyL2O0iSf+gItwdvRwoiSQd39g7kd4PF/AD2P4UQwvCHGy8Iz1wghzL4Dr+RIX4ETiFn6IrKxQNS2KqkGal8iKCk6WyU7FX8jFEQQB4jjGcrlEFEVmTvDZ932D+XwOz/OMP8syVFWFtm3RdR36XhSWq6diszwzC9M0PQNu4LouwjA0IOlSfPSvG07RdCb38VjJrqvVyuzedh3OG1RlwylqSmyQF4VRlCSJSYdpUTHToo+KqJCWc6JpmmdInSJ9DCx/RJqVJh2ScCFrxbmmuVgsDLiR+khKEiVlHQeFLeq6NgFsiDaFlgpVHclIqhszo24ox6nCBv9qmFoKnlvDMpsD6S+ScoFAdqYKk+KQsh4ff3gXBE/LoKWx69h1QpjmKerMFfmZSS/Pc3O2yrI0lgtYDj4X0jj667oxfqIdToPGO2lZo21KdEbyaXE1hU6t5dM5SShCiU1TyuwESB4gYcqSjt4OTUs7rN3V46SdJuzGOGlRG/ZGZHOn1WC5O9PXMjDYxA0x58HxokQWnV41EqgCHiPOfVF8fHxsfJyPr6cNx48T5ENQZlkbLAHvM8+j+mwBNhw/OiUcQxcyZXZYr6DW2CZfS2jvNCYlAYl4e0hsvxulnKIYiq8Kxumfl97alBfhEnEUnjn963ZfN1cfhXAt4bjy6V8On6TzUn5eGZSMHEPKEvAPJOOaqWU9dc7ryeY902U7WEug/491yvUUHB0dmfqvJVQiW8G4CaqcyiaTCTY2NrC7uys3RZqSDS9t2A0Yv7PB80l1m5ub2N/fhxPLp7+pK/Pp+a/gHf7743DwaIbDwxlms/+H6XRq8ARP8MbabmjdigAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img03&quot; title src=&quot;/static/a0456dd94eb2bcebf405aea6d1534606/b9e4f/img03.png&quot; srcset=&quot;/static/a0456dd94eb2bcebf405aea6d1534606/cf440/img03.png 148w,
-/static/a0456dd94eb2bcebf405aea6d1534606/d2d38/img03.png 295w,
-/static/a0456dd94eb2bcebf405aea6d1534606/b9e4f/img03.png 590w,
-/static/a0456dd94eb2bcebf405aea6d1534606/34e8a/img03.png 600w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img03&quot; title src=&quot;/./static/a0456dd94eb2bcebf405aea6d1534606/b9e4f/img03.png&quot; srcset=&quot;/./static/a0456dd94eb2bcebf405aea6d1534606/cf440/img03.png 148w,
+/./static/a0456dd94eb2bcebf405aea6d1534606/d2d38/img03.png 295w,
+/./static/a0456dd94eb2bcebf405aea6d1534606/b9e4f/img03.png 590w,
+/./static/a0456dd94eb2bcebf405aea6d1534606/34e8a/img03.png 600w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -447,16 +447,16 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;p&gt;可以看到我们之前那种效果太规律了，太显眼了，所以 po 要求变成右边这种效果。所以我们要改变一下我们的水印生成方式。原先我们是两层循环，在第二层循环里面去创建水印。现在我们可以在第一层循环下面先创建一行的水印。然后判断如果是奇数行，那么就向右移动一点距离。也要注意下，如果水印有倾角，我们整个水印容器的高度也需要重新用余弦或者正弦计算一下，不然在底部会有一部分三角形的空白。&lt;/p&gt;
 &lt;p&gt;最后，&lt;code class=&quot;language-text&quot;&gt;pointer-events&lt;/code&gt;的兼容性如下：&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/db46e7230409c4a733d7d6d1e8e4b0f0/2f8d2/img04.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/db46e7230409c4a733d7d6d1e8e4b0f0/2f8d2/img04.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 39.044117647058826%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA/+AAAR/gGkbhtQAAABaElEQVQoz11RWXakMAzk/gfLRsJmjDGmDRholl6THKAiqfPmzcxHvXKpRFky0Xb9xHq5C/bbF7ppwbSdsJxvmPcLisqSPuN4ukrNhxkzae5nP9e1sPiE6P/AA33Q+AHdeHycuwGuD/CkOcySx75pO9QE1tb36OeVesO/gXwOy45xPf2ZKBw3GOfFZ82XaOvoklHq7TAJ8xbM0fYb9vfK3MSBYdlkMm1bWYs/Yq9qWgqeYA+96Lr1oiWQQxjb9Qunz2+4bkSmDJpDoPdrRCvixgd6L0vhHnlZiy6No9BBuGq8vGc00EoD7c9Yz3do5/CUvCGzGq/ZB5KqwHMaQzmDl+wdscrwnMRIjMJbkZD/4FiliNMUUa4NUqVpKg3nR+ihRrXlhBLlMYdeCkIOs5eCalUoSas5ox4lfho+pNcH/5jw8SN2tP2MzBVwN4PDnda81HS2xAYtcUs1ezaody0ea67zRY70tIz4AcFzQvvHlXU2AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img04&quot; title src=&quot;/static/db46e7230409c4a733d7d6d1e8e4b0f0/b9e4f/img04.png&quot; srcset=&quot;/static/db46e7230409c4a733d7d6d1e8e4b0f0/cf440/img04.png 148w,
-/static/db46e7230409c4a733d7d6d1e8e4b0f0/d2d38/img04.png 295w,
-/static/db46e7230409c4a733d7d6d1e8e4b0f0/b9e4f/img04.png 590w,
-/static/db46e7230409c4a733d7d6d1e8e4b0f0/f9b6a/img04.png 885w,
-/static/db46e7230409c4a733d7d6d1e8e4b0f0/2d849/img04.png 1180w,
-/static/db46e7230409c4a733d7d6d1e8e4b0f0/2f8d2/img04.png 1360w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img04&quot; title src=&quot;/./static/db46e7230409c4a733d7d6d1e8e4b0f0/b9e4f/img04.png&quot; srcset=&quot;/./static/db46e7230409c4a733d7d6d1e8e4b0f0/cf440/img04.png 148w,
+/./static/db46e7230409c4a733d7d6d1e8e4b0f0/d2d38/img04.png 295w,
+/./static/db46e7230409c4a733d7d6d1e8e4b0f0/b9e4f/img04.png 590w,
+/./static/db46e7230409c4a733d7d6d1e8e4b0f0/f9b6a/img04.png 885w,
+/./static/db46e7230409c4a733d7d6d1e8e4b0f0/2d849/img04.png 1180w,
+/./static/db46e7230409c4a733d7d6d1e8e4b0f0/2f8d2/img04.png 1360w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -504,27 +504,27 @@ data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_info&lt;s
 &lt;h3&gt;方案一：降低透明度，让水印近似不可见&lt;/h3&gt;
 &lt;p&gt;一般我们可以把透明度设置为 0.002。但是再 ps 软件下调高对比度即可清晰看到水印。但是这种本质上来说还不是盲水印，因为只是颜色变淡了，仔细看还是能看到一点点，如下图：&lt;/p&gt;
 &lt;p&gt;
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 467px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 102.35546038543897%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABU5AAAOwwEWv1ovAAABV0lEQVQ4y72TwWrCQBRFJ9FMpZBCo01JtNCFmqz9l2KX/bn+hEJ/RRuEQj+gmzjvdsYxySSZWEVo4PAmixzuvEvYV5JASMhGmoKmU9BiAdrtoB4SAkSkz8bUACxnDKILxzlM8n3QZgNqCOsyDSPO0clgANHrgYbD84XC86AgY5ZIqXBdUBBckLAp6RJut9oghfb96ferhGbS4jlfaLmyLWW5wwpeTX4jm3YhgotL4XaU0O3Vhfs/hOi7QJ9VeEfUmTuAI2fgA42EhbMlXI7esRytJOsWrw9rvNyv8Pb8ge/s59iJfX9lKX4M+GM7dxPg9hGIE+AzO3xelNwSqeMh4STaYxLlVp7iHFGYI53lyDI6Cul0y1FEsBHL5GOZMgwJsxlZhdYdnhaSFs6vFCqZml0Ju65bCpXApJ4QmJcJ9Z/XTAgYLZuJzLNdSDWhKbtgh+gs5V9a/gU3Ob7/miKGUwAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img05&quot; title src=&quot;/static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png&quot; srcset=&quot;/static/78f6c028ba7f97e8874d6a9a668e02fa/cf440/img05.png 148w,
-/static/78f6c028ba7f97e8874d6a9a668e02fa/d2d38/img05.png 295w,
-/static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png 467w&quot; sizes=&quot;(max-width: 467px) 100vw, 467px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img05&quot; title src=&quot;/./static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png&quot; srcset=&quot;/./static/78f6c028ba7f97e8874d6a9a668e02fa/cf440/img05.png 148w,
+/./static/78f6c028ba7f97e8874d6a9a668e02fa/d2d38/img05.png 295w,
+/./static/78f6c028ba7f97e8874d6a9a668e02fa/eea37/img05.png 467w&quot; sizes=&quot;(max-width: 467px) 100vw, 467px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
   &lt;/a&gt;
      —&gt; 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/1cf3a0572563c2fa9d2843daf3dfbcbf/77c37/img06.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/77c37/img06.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 38.32335329341318%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABU5AAAL1wE+2k+RAAAB40lEQVQoz0WS7WvTUBTGr2P+A/oH7rtf+mGWiVKGoiL4YQhuI9lcGQjDzukXRQXbFVItlSR17dKk6Uva0jeb0tK0SRMIPN5zZXjgwuWenCe/55zD6qkUejs7uDo/hzMYoN1solqtotfrwbIsGIaBfr+PSqWCVqsF27ZRLBah6Tpy2UtcfjvD7omErXspSHuvwQaMAfwY95MIAPiLBUzTBMVwOITjOOJOb1EUIZfLIZFIQNVUSAeHeCvv48vHDN6fHOPzxTuw5eY/Qff5M6x5YeT7mEwmiOMYCy4+nU6FoOu68HluvV6j2+2iXC7jzfERDl8dYD+j4MUHHXtfTTBz4w7m7BbKD3YFoTefCxoSJKs3hGR/NpsJylqtBk3TIB/JyJxd4FP2J7K/qvhe/A12d8PBbTbFy6ddXhYi8COMx2Mh6HmeIKMg6uVyKd4HvNdEKEkSlIKCTrsJ27yGbRnc7KZLjvHwUZ2XrTiFJ2huCskeBQ1jzumDIPhPKMvI5/Oo89w1H55h1LgWWwjBJ4//8LIYYRgLGorVaiVsUlAvwzAU99FoBJ1PmQhJkH5mCEFOmEzq2N5u4/T0B18Lk/fPQqFQQJOvD9kqlUrodDpiVWidGo2GyKuqinQ6DUVRxLfUdzp/AX/0GNA2OgGcAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img06&quot; title src=&quot;/static/1cf3a0572563c2fa9d2843daf3dfbcbf/b9e4f/img06.png&quot; srcset=&quot;/static/1cf3a0572563c2fa9d2843daf3dfbcbf/cf440/img06.png 148w,
-/static/1cf3a0572563c2fa9d2843daf3dfbcbf/d2d38/img06.png 295w,
-/static/1cf3a0572563c2fa9d2843daf3dfbcbf/b9e4f/img06.png 590w,
-/static/1cf3a0572563c2fa9d2843daf3dfbcbf/f9b6a/img06.png 885w,
-/static/1cf3a0572563c2fa9d2843daf3dfbcbf/77c37/img06.png 1002w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img06&quot; title src=&quot;/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/b9e4f/img06.png&quot; srcset=&quot;/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/cf440/img06.png 148w,
+/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/d2d38/img06.png 295w,
+/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/b9e4f/img06.png 590w,
+/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/f9b6a/img06.png 885w,
+/./static/1cf3a0572563c2fa9d2843daf3dfbcbf/77c37/img06.png 1002w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -601,23 +601,23 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;最后我们得到了合成了水印后的图片：（左图为原图，右图为合成后）&lt;/p&gt;
 &lt;p&gt;
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 256px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+UlEQVQ4y42Sy08TURSH7zzLQ4HioggaICZGE6MYRY08qsYqibghWsANW43yB7j036H0ObQg0WB0QRQTwMTEFbpTMREo0Mc8+vPcOy0MTQlO8vWce+b2m3PuDJMYA6vB/9SlGjB+o7GhAW2BABrq6+H3+3GitVX8QdM0qIqCY42NaGluFvsOEx0QNjU1YXJyEreCQYyMjGBiYgLd3d0Ih8Po6uzEvVAIl3t68HB4+GihompiU1//AE53duHsufO4czeE3us38Oz5C1G7cPESrvReQ+j+kCtUVEiyUhNWOY96z9mo5aiX63zt16QDew7FFxwHRxschX77CbTgGFSeU1QGwpAHHou11PdI5PrgGPT+cYHWPwatj9acm6MC5vsAVNDfE+8oJ7QFN/fCa9obyudd1DlAmXWjVobpRg5qirMLPbUDOVkAi5tQExYUD2qSYoyIFqFE8pAjObCpCgVIU6aA+WYtaOki9DSJjCJaZgtomyuCJUtQjBLkFMWUA5VylWoal8dJGidJjCT0EClqgUXKcKEvQzdmijieyePl1yzOvKWnJiEkskFjkbQiVBM2ND4BSaUodURI0ySN2BRtLjTBpYyEr75lcXVhFyxG5yG6g9shSfVUWRh3SGhT5AISThc9QssV1nEhjT20uIunK1n4DFPI9kauFsboCAghjJAwYoruJD6ynqGReZcUWdLEg8Ud9PAuE+WRawo9HXLhtEdYJzo0xTn60lxKZ5SyxMiq4Uo5PkInoZ5woMdtMbZMIplGdqMlYBJJOGyGMCg3HLCULd4yfzEVJB6paxajetRxmaL/8E9FRNulfT4HTsfrPE7NFQQdmQLaiZP0KbWl8xTzbj6TJ3KCAH2/AfpuA0kPiW2wbctGVuDsY3JsbBGbloeqddaysF0FA0o4GodCmb3c3r8v6jynI7FpcTglWBTdre7lzasvvpc59ONSgg03ckVFyq/1P+tY+ryEldUv+LuxgbXva/i49AkbW5v4+es3lpdXqfZDPOwfWKrrCRilWIUAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img08&quot; title src=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; srcset=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/cf440/img08.png 148w,
-/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img08&quot; title src=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; srcset=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/cf440/img08.png 148w,
+/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
   &lt;/a&gt;
      —&gt; 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 256px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+UlEQVQ4y42Sy08TURSH7zzLQ4HioggaICZGE6MYRY08qsYqibghWsANW43yB7j036H0ObQg0WB0QRQTwMTEFbpTMREo0Mc8+vPcOy0MTQlO8vWce+b2m3PuDJMYA6vB/9SlGjB+o7GhAW2BABrq6+H3+3GitVX8QdM0qIqCY42NaGluFvsOEx0QNjU1YXJyEreCQYyMjGBiYgLd3d0Ih8Po6uzEvVAIl3t68HB4+GihompiU1//AE53duHsufO4czeE3us38Oz5C1G7cPESrvReQ+j+kCtUVEiyUhNWOY96z9mo5aiX63zt16QDew7FFxwHRxschX77CbTgGFSeU1QGwpAHHou11PdI5PrgGPT+cYHWPwatj9acm6MC5vsAVNDfE+8oJ7QFN/fCa9obyudd1DlAmXWjVobpRg5qirMLPbUDOVkAi5tQExYUD2qSYoyIFqFE8pAjObCpCgVIU6aA+WYtaOki9DSJjCJaZgtomyuCJUtQjBLkFMWUA5VylWoal8dJGidJjCT0EClqgUXKcKEvQzdmijieyePl1yzOvKWnJiEkskFjkbQiVBM2ND4BSaUodURI0ySN2BRtLjTBpYyEr75lcXVhFyxG5yG6g9shSfVUWRh3SGhT5AISThc9QssV1nEhjT20uIunK1n4DFPI9kauFsboCAghjJAwYoruJD6ynqGReZcUWdLEg8Ud9PAuE+WRawo9HXLhtEdYJzo0xTn60lxKZ5SyxMiq4Uo5PkInoZ5woMdtMbZMIplGdqMlYBJJOGyGMCg3HLCULd4yfzEVJB6paxajetRxmaL/8E9FRNulfT4HTsfrPE7NFQQdmQLaiZP0KbWl8xTzbj6TJ3KCAH2/AfpuA0kPiW2wbctGVuDsY3JsbBGbloeqddaysF0FA0o4GodCmb3c3r8v6jynI7FpcTglWBTdre7lzasvvpc59ONSgg03ckVFyq/1P+tY+ryEldUv+LuxgbXva/i49AkbW5v4+es3lpdXqfZDPOwfWKrrCRilWIUAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img08&quot; title src=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; srcset=&quot;/static/70b56c6d86eb86ecb2c9f3624d15056a/cf440/img08.png 148w,
-/static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img08&quot; title src=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png&quot; srcset=&quot;/./static/70b56c6d86eb86ecb2c9f3624d15056a/cf440/img08.png 148w,
+/./static/70b56c6d86eb86ecb2c9f3624d15056a/00397/img08.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -657,12 +657,12 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;得到的水印：&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/1552570c7264be40abaed10a2fc01571/00397/img09.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/1552570c7264be40abaed10a2fc01571/00397/img09.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 256px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAAiUlEQVQ4y2NgYGD4T2U8auCgN5ARiJmR2IxYNDESayAjNV0IM0wWiPOB2BeIQ4E4CogtgNgKiN2AOBGIM4gxkAlKmwHxRSDuA+INQLwbiEuBuAWIS4B4FRDPA2J2YsMQpNAciK2BOBKIg4HYEohtoS71B2InIGYb0GQDi10mKGbEQo/mlFEDqYgBguaZx/eZZFAAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img09&quot; title src=&quot;/static/1552570c7264be40abaed10a2fc01571/00397/img09.png&quot; srcset=&quot;/static/1552570c7264be40abaed10a2fc01571/cf440/img09.png 148w,
-/static/1552570c7264be40abaed10a2fc01571/00397/img09.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img09&quot; title src=&quot;/./static/1552570c7264be40abaed10a2fc01571/00397/img09.png&quot; srcset=&quot;/./static/1552570c7264be40abaed10a2fc01571/cf440/img09.png 148w,
+/./static/1552570c7264be40abaed10a2fc01571/00397/img09.png 256w&quot; sizes=&quot;(max-width: 256px) 100vw, 256px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -673,13 +673,13 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;前面我们讲的都是前端方案，最后我们讲一个后端方案，也是目前最优的方案。&lt;/p&gt;
 &lt;p&gt;什么事频域？我们所看到图像就是空域或者说时域（即二维的图像信号），它随着时间的变化而变化。而频域，我们可以理解它是上帝视角下的时域，它是时域的规律。每一个空域都能通过多个频率合成。频域添加水印的方法，是指通过某种变换手段（我们这里通过傅里叶变换）将图像变换到频域（小波域），在频域对图像添加水印，再通过逆变换，将图像转换为空间域。&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 354px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 25.98870056497175%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAvklEQVQY041QywqDQAzc//8iT4JHQRAETyoKCrK+0RUUH1MmrUVKCx0IbLKTZCYKL5znic930zSo6xpRFGEcR/wDNQwDyrKUZFmW97DjOOD7vtQ4eF1X9H0P8ud5Fl7btojjGNM0oes66VGe58FxHARBgDAMkee5qNJaS35XTZ7rurBtG1mWyYKiKMAZlmVh2zYoKmBQJQksEmmayvZ933Fx+E/rl+ILVGyMeVr+dQsuYHOSJKiq6iuHFhl3Fw952H6lpm1umwAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img10&quot; title src=&quot;/static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png&quot; srcset=&quot;/static/fca610d627ae4e818cf04ffa17b54dbb/cf440/img10.png 148w,
-/static/fca610d627ae4e818cf04ffa17b54dbb/d2d38/img10.png 295w,
-/static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png 354w&quot; sizes=&quot;(max-width: 354px) 100vw, 354px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img10&quot; title src=&quot;/./static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png&quot; srcset=&quot;/./static/fca610d627ae4e818cf04ffa17b54dbb/cf440/img10.png 148w,
+/./static/fca610d627ae4e818cf04ffa17b54dbb/d2d38/img10.png 295w,
+/./static/fca610d627ae4e818cf04ffa17b54dbb/1a1ab/img10.png 354w&quot; sizes=&quot;(max-width: 354px) 100vw, 354px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -687,15 +687,15 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
     
 &lt;p&gt;上面就是傅里叶变换公式。f(t)就是时域，当然这是针对信号的，按照我们的理解就是空域。W 就是频率，如果大家相对傅里叶变化有进一步的了解，可以&lt;a href=&quot;https://zhuanlan.zhihu.com/p/19763358&quot;&gt;戳这里&lt;/a&gt;。反正我们只要知道，有方法可以将空域图像转换成频域。&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/67775b5e4e7250f684a86f8e81e50900/974da/img11.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/67775b5e4e7250f684a86f8e81e50900/974da/img11.jpg&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 29.381443298969074%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3aAH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAABFRIQH/2gAIAQEAAT8hyCmC7T//2gAMAwEAAgADAAAAEPPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAITGBkf/aAAgBAQABPxDIKXUwi8QtpeT/2Q==&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img11&quot; title src=&quot;/static/67775b5e4e7250f684a86f8e81e50900/c739e/img11.jpg&quot; srcset=&quot;/static/67775b5e4e7250f684a86f8e81e50900/8ee9c/img11.jpg 148w,
-/static/67775b5e4e7250f684a86f8e81e50900/ebbe7/img11.jpg 295w,
-/static/67775b5e4e7250f684a86f8e81e50900/c739e/img11.jpg 590w,
-/static/67775b5e4e7250f684a86f8e81e50900/5413e/img11.jpg 885w,
-/static/67775b5e4e7250f684a86f8e81e50900/974da/img11.jpg 1164w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img11&quot; title src=&quot;/./static/67775b5e4e7250f684a86f8e81e50900/c739e/img11.jpg&quot; srcset=&quot;/./static/67775b5e4e7250f684a86f8e81e50900/8ee9c/img11.jpg 148w,
+/./static/67775b5e4e7250f684a86f8e81e50900/ebbe7/img11.jpg 295w,
+/./static/67775b5e4e7250f684a86f8e81e50900/c739e/img11.jpg 590w,
+/./static/67775b5e4e7250f684a86f8e81e50900/5413e/img11.jpg 885w,
+/./static/67775b5e4e7250f684a86f8e81e50900/974da/img11.jpg 1164w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -707,14 +707,14 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 它是一个跨平台计算机视觉库，实现了图像处理和计算机视觉方面的很多通用算法。&lt;/p&gt;
 &lt;p&gt;官方支持 Python、Ruby、Go、Java 等主流后端语言和一些硬件编程语言。&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/48d69f8d8f4959fccd8450fef464dbc5/73d01/img11.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/48d69f8d8f4959fccd8450fef464dbc5/73d01/img11.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 50.76335877862596%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC1UlEQVQozx2S3U9aBxyGue+y7mL9RusQKq4UtVCc1n5IZ4VKURQ8fB3gHL6OIAVFQBB1sGZZ2hXrusZ2u1iTJf1I1m3Jkl0szmTJ4mpi22VJs2RZ1q3/yNOTXrwXv5v3/eXJo3l3wI7RcgqTrR+jw4nOH8IYDvO+FKEnJdOXSeLN55CzWRKlBfpkCb0/iG5KoO3yFAdHJ9Cec3BkcIS9gw40h6xDDPf14jjZi3XEjimexKoksZfmGS4VOFlIIxfnqMypqVWxKSmMoohBCNLhmUbr8rLf6eWdYTd7hy6h0Y9e5nqtyFeNJQaCQcq37/D77lN2n//Bzzs72EpZIvN5Mqk0qdks/ZkUJ+IS3SG11C9ydFyg84wdw+A5tP3n1cIxL2vNVb5tXVMLozgXF1Fa1ynf3SC/8TkfVHPMLFUo5nJk83ks6TjtAQHtlBetN0Cb041F38lps5m+HjOabrefr7+8x5+/beNSrtApRTmejNGTTWArznCmXmCmWWehXELKzSJebdK6/4D1+w9Zf/QY/aRAUR1ZX5zHHQiiOTDm44RP5LSsYIpIdMkyxkQMkyJhVfkN1fLI9QqFUom4ylK5cY3Hm7/ww+YW32/9SpcvSK1Y4Mebn+IQYmjEjz8hu9biyq11lJtruGpLpFo3KN/ZoLBxC8ucwuxyjdVqjeXGR9iySfTRMIZQiE4hQPvYBGuffcFfO0+IZRbQfLf5E89ebPPPfy/Y2t2mee8b/v73JS//f6XeTzmelsjUazSWl6murmBNJeiORDim6vWeqk772CQfhuL4MvMMTqsf6saDmMJxeqU05lgSQ0BENx2gNyZjSSTQiyFSlTLNlRUWqlXMkShHJ6dpd3s5fMnDgZFx3j7rZM/ARd5So9lvd3No1EOby0fHhIBBZWL0hzEGwm/U6AqKpMsVrjYaVOp1ekJRdB4B3YSfDrfAkYseDl8Y5+B5N/vOungNPfKp2H4ZAYoAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img11&quot; title src=&quot;/static/48d69f8d8f4959fccd8450fef464dbc5/b9e4f/img11.png&quot; srcset=&quot;/static/48d69f8d8f4959fccd8450fef464dbc5/cf440/img11.png 148w,
-/static/48d69f8d8f4959fccd8450fef464dbc5/d2d38/img11.png 295w,
-/static/48d69f8d8f4959fccd8450fef464dbc5/b9e4f/img11.png 590w,
-/static/48d69f8d8f4959fccd8450fef464dbc5/73d01/img11.png 786w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img11&quot; title src=&quot;/./static/48d69f8d8f4959fccd8450fef464dbc5/b9e4f/img11.png&quot; srcset=&quot;/./static/48d69f8d8f4959fccd8450fef464dbc5/cf440/img11.png 148w,
+/./static/48d69f8d8f4959fccd8450fef464dbc5/d2d38/img11.png 295w,
+/./static/48d69f8d8f4959fccd8450fef464dbc5/b9e4f/img11.png 590w,
+/./static/48d69f8d8f4959fccd8450fef464dbc5/73d01/img11.png 786w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -722,13 +722,13 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
     
 &lt;p&gt;上面就是水印合成过程，拿到合成图片和原图，经过反编码可以得到下面这个水印&lt;/p&gt;
 
-  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/e7d648896b382401fb7d2add239508e2/42fef/img12.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/./static/e7d648896b382401fb7d2add239508e2/42fef/img12.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
   
   &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block;  max-width: 521px; margin-left: auto; margin-right: auto;&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 164.87523992322457%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAhCAYAAADZPosTAAAACXBIWXMAABcRAAAXEQHKJvM/AAAAoUlEQVRIx+2NzQ7CIBAGKZTlZdSGWlug9s+L+v4P9LkQL0Z78rokE5bJZlCV0jCKoFWNShmmhtYG3rfoh4Bz1+P+eGK8zpiXlV3EsmyYprm4PGef3wPvq++g4aDG4XiCbzs0jce63XDpA0JM7M5IacQQYvkwxpFJZW55X/HBL6y1ICbfzjkQUaF4cm/oA2tpP/gHEpSgBCUoQQlKUIIS3OMFk3alc6CJDlUAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;
-      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img12&quot; title src=&quot;/static/e7d648896b382401fb7d2add239508e2/42fef/img12.png&quot; srcset=&quot;/static/e7d648896b382401fb7d2add239508e2/cf440/img12.png 148w,
-/static/e7d648896b382401fb7d2add239508e2/d2d38/img12.png 295w,
-/static/e7d648896b382401fb7d2add239508e2/42fef/img12.png 521w&quot; sizes=&quot;(max-width: 521px) 100vw, 521px&quot;&gt;
+      &lt;img class=&quot;gatsby-resp-image-image&quot; style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot; alt=&quot;img12&quot; title src=&quot;/./static/e7d648896b382401fb7d2add239508e2/42fef/img12.png&quot; srcset=&quot;/./static/e7d648896b382401fb7d2add239508e2/cf440/img12.png 148w,
+/./static/e7d648896b382401fb7d2add239508e2/d2d38/img12.png 295w,
+/./static/e7d648896b382401fb7d2add239508e2/42fef/img12.png 521w&quot; sizes=&quot;(max-width: 521px) 100vw, 521px&quot;&gt;
     &lt;/span&gt;
   &lt;/span&gt;
   
@@ -773,7 +773,7 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1b04951da13ab5d9519261f3e6256cc4/a53a2/eg_01.jpg&quot;
+    href=&quot;/./static/1b04951da13ab5d9519261f3e6256cc4/a53a2/eg_01.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -792,11 +792,11 @@ img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;eg 01&quot;
         title=&quot;&quot;
-        src=&quot;/static/1b04951da13ab5d9519261f3e6256cc4/c739e/eg_01.jpg&quot;
-        srcset=&quot;/static/1b04951da13ab5d9519261f3e6256cc4/8ee9c/eg_01.jpg 148w,
-/static/1b04951da13ab5d9519261f3e6256cc4/ebbe7/eg_01.jpg 295w,
-/static/1b04951da13ab5d9519261f3e6256cc4/c739e/eg_01.jpg 590w,
-/static/1b04951da13ab5d9519261f3e6256cc4/a53a2/eg_01.jpg 796w&quot;
+        src=&quot;/./static/1b04951da13ab5d9519261f3e6256cc4/c739e/eg_01.jpg&quot;
+        srcset=&quot;/./static/1b04951da13ab5d9519261f3e6256cc4/8ee9c/eg_01.jpg 148w,
+/./static/1b04951da13ab5d9519261f3e6256cc4/ebbe7/eg_01.jpg 295w,
+/./static/1b04951da13ab5d9519261f3e6256cc4/c739e/eg_01.jpg 590w,
+/./static/1b04951da13ab5d9519261f3e6256cc4/a53a2/eg_01.jpg 796w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
       /&gt;
     &lt;/span&gt;
